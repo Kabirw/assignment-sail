@@ -1,3 +1,5 @@
-receiver_email = "wadhwawadhwa100@gmail.com"
-Subject = "This is a test email"
-body = "Hi, Here is an update from the past week. Below you will find a summary of PRs raised in the past week"
+#import assignment
+
+receiver_email = "wadhwakabir559@gmail.com"
+Subject = "PR Update"
+body = f'Hi, Here is an update from the past week.\n Below you will find a summary of PRs raised in the past week. \nAlso total PRs raised in last week'
