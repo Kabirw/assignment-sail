@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.10
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
