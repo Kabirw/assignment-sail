@@ -74,8 +74,7 @@ session.sendmail(sender_email, receiver_email, text)
 session.quit()
 
 
-print('Mail Sent')
-#This code sends a plain text email from the sender's email address to the receiver's email address using the Gmail SMTP server. You can modify the code to include attachments or use HTML content instead of plain text by modifying the MIMEText and MIMEMultipart objects.
+
 
 
 
