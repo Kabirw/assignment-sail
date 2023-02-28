@@ -13,7 +13,7 @@ RUN chmod 0644 /etc/cron.d/crontab
 RUN pip install --trusted-host pypi.python.org -r Requirements.txt
 
 # start cron service
-CMD ["crond", "-f"]
+CMD ["cron", "-f"]
 
 
 
