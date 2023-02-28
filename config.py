@@ -1,4 +1,4 @@
-username = 'kabir@forkingpaths.tech'
-password = 'surat2011k@K'
+username = ''
+password = ''
 host='smtp.gmail.com'
 port='587'
