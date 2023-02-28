@@ -1,15 +1,15 @@
-# Use an official Python runtime as a parent image
 FROM python:3.10
 
-# Set the working directory to /app
-WORKDIR /app
+# copy crontab file to container
+COPY crontab /etc/cron.d/crontab
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# give execution rights to the cron job
+RUN chmod 0644 /etc/cron.d/crontab
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Run the Python script when the container launches
-CMD ["python",assignment.py"]
+COPY . /usr/src/app/Assignment
 
+RUN pip install --trusted-host pypi.python.org -r /usr/src/app/Assignment/Requirements.txt
+
+# start cron service
+CMD ["cron", "-f"]

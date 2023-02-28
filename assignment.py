@@ -40,7 +40,7 @@ now = datetime.today().date()
 one_week_ago = now - timedelta(weeks=1)
 
 filtered_df = df[(df['created_at'] >= one_week_ago) & (df['created_at'] <= now)]
-name_counts = filtered_df['state'].value_counts()
+name_counts = filtered_df['state']
 total_count = len(name_counts)
 
 sender_email = config.username
@@ -52,7 +52,7 @@ message["From"] = config.username
 message["To"] = receiver_email
 message["Subject"] = user_config.Subject
 
-body = user_config.body
+body = f'Hi, Here is an update from the past week.\nBelow you will find a summary of PRs raised in the past week. \nAlso total PRs raised in last week {total_count} '
 message.attach(MIMEText(body, "plain"))
 
 table_html = filtered_df.to_html(index=False)
