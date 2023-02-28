@@ -1,15 +1,19 @@
-FROM python:3.10
+FROM python:latest
+WORKDIR /app
 
-# copy crontab file to container
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+RUN apt-get update && apt-get -y install cron   
+
 COPY crontab /etc/cron.d/crontab
 
-# give execution rights to the cron job
 RUN chmod 0644 /etc/cron.d/crontab
 
-
-COPY . /usr/src/app/Assignment
-
-RUN pip install --trusted-host pypi.python.org -r /usr/src/app/Assignment/Requirements.txt
+RUN pip install --trusted-host pypi.python.org -r Requirements.txt
 
 # start cron service
-CMD ["cron", "-f"]
+CMD ["crond", "-f"]
+
+
+

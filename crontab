@@ -1,0 +1,1 @@
+0 0 * * 0  root python /app/assignment.py >> /var/log/cron.log 2>&1
